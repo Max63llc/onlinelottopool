@@ -90,114 +90,7 @@
         </a>
       </div>
     </section>
-<!-- JOIN A POOL SECTION -->
-<section id="join-pool" class="max-w-xl mx-auto mt-16 mb-24 px-4">
-  <h2 class="text-2xl font-bold mb-4 text-white">
-    Join a Pool
-  </h2>
-  <p class="text-gray-300 text-sm mb-6">
-    Enter the pool name or code you were given and your contact details so the organizer
-    can confirm payment and send ticket photos and deadline reminders.
-  </p>
 
-  <form
-    name="join-pool"
-    method="POST"
-    data-netlify="true"
-    action="/success.html"
-    class="bg-gray-900/80 border border-gray-700 rounded-2xl p-6 space-y-4"
-  >
-    <!-- Netlify needs this hidden field -->
-    <input type="hidden" name="form-name" value="join-pool" />
-
-    <!-- Pool Name / Code -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="pool-name">
-        Pool name or code
-      </label>
-      <input
-        id="pool-name"
-        name="pool-name"
-        type="text"
-        required
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="e.g. Warehouse Crew Powerball 11/20"
-      />
-    </div>
-
-    <!-- Your Name -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="participant-name">
-        Your name
-      </label>
-      <input
-        id="participant-name"
-        name="participant-name"
-        type="text"
-        required
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="John Smith"
-      />
-    </div>
-
-    <!-- Email -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="email">
-        Email (for ticket photos)
-      </label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        required
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="you@example.com"
-      />
-    </div>
-
-    <!-- Phone (optional) -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="phone">
-        Phone (optional – for text alerts)
-      </label>
-      <input
-        id="phone"
-        name="phone"
-        type="tel"
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="555-123-4567"
-      />
-    </div>
-
-    <!-- Notes to Organizer -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="note">
-        Note to organizer (optional)
-      </label>
-      <textarea
-        id="note"
-        name="note"
-        rows="3"
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="Example: I paid in cash to Mike at 2:15 PM."
-      ></textarea>
-    </div>
-
-    <!-- Disclaimer -->
-    <p class="text-xs text-gray-400">
-      By joining this pool, you agree to pay the organizer before the posted cutoff time.
-      The organizer is responsible for purchasing tickets and sharing photos with all participants.
-    </p>
-
-    <!-- Submit button -->
-    <button
-      type="submit"
-      class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl mt-2 text-sm tracking-wide"
-    >
-      Join this pool
-    </button>
-  </form>
-</section>
 
     <!-- 2-COLUMN MAIN AREA -->
     <section class="grid md:grid-cols-2 gap-8 mb-16" id="create-pool">
@@ -357,6 +250,115 @@
           </div>
         </div>
 
+<!-- JOIN A POOL SECTION -->
+<section id="join-pool" class="max-w-xl mx-auto mt-16 mb-24 px-4">
+  <h2 class="text-2xl font-bold mb-4 text-white">
+    Join a Pool
+  </h2>
+  <p class="text-gray-300 text-sm mb-6">
+    Enter the pool name or code you were given and your contact details so the organizer
+    can confirm payment and send ticket photos and deadline reminders.
+  </p>
+
+  <form
+    name="join-pool"
+    method="POST"
+    data-netlify="true"
+    action="/success.html"
+    class="bg-gray-900/80 border border-gray-700 rounded-2xl p-6 space-y-4"
+  >
+    <!-- Netlify needs this hidden field -->
+    <input type="hidden" name="form-name" value="join-pool" />
+
+    <!-- Pool Name / Code -->
+    <div>
+      <label class="block text-sm font-medium text-gray-200 mb-1" for="pool-name">
+        Pool name or code
+      </label>
+      <input
+        id="pool-name"
+        name="pool-name"
+        type="text"
+        required
+        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+        placeholder="e.g. Warehouse Crew Powerball 11/20"
+      />
+    </div>
+
+    <!-- Your Name -->
+    <div>
+      <label class="block text-sm font-medium text-gray-200 mb-1" for="participant-name">
+        Your name
+      </label>
+      <input
+        id="participant-name"
+        name="participant-name"
+        type="text"
+        required
+        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+        placeholder="John Smith"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label class="block text-sm font-medium text-gray-200 mb-1" for="email">
+        Email (for ticket photos)
+      </label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+        placeholder="you@example.com"
+      />
+    </div>
+
+    <!-- Phone (optional) -->
+    <div>
+      <label class="block text-sm font-medium text-gray-200 mb-1" for="phone">
+        Phone (optional – for text alerts)
+      </label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+        placeholder="555-123-4567"
+      />
+    </div>
+
+    <!-- Notes to Organizer -->
+    <div>
+      <label class="block text-sm font-medium text-gray-200 mb-1" for="note">
+        Note to organizer (optional)
+      </label>
+      <textarea
+        id="note"
+        name="note"
+        rows="3"
+        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+        placeholder="Example: I paid in cash to Mike at 2:15 PM."
+      ></textarea>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="text-xs text-gray-400">
+      By joining this pool, you agree to pay the organizer before the posted cutoff time.
+      The organizer is responsible for purchasing tickets and sharing photos with all participants.
+    </p>
+
+    <!-- Submit button -->
+    <button
+      type="submit"
+      class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl mt-2 text-sm tracking-wide"
+    >
+      Join this pool
+    </button>
+  </form>
+</section>
+        
         <!-- BLOG + ADSENSE LAYOUT PREVIEW -->
         <div id="blog" class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-7">
           <div class="flex items-center justify-between mb-4">
