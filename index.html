@@ -95,50 +95,144 @@
     <!-- 2-COLUMN MAIN AREA -->
     <section class="grid md:grid-cols-2 gap-8 mb-16" id="create-pool">
       <!-- LEFT: CREATE POOL FORM (UI ONLY) -->
-        <form class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium mb-1">Pool Name</label>
-            <input class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Warehouse Crew Powerball 11/23" />
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">Lottery</label>
-              <select class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                <option>Powerball</option>
-                <option>Mega Millions</option>
-                <option>Florida Lotto</option>
-                <option>Fantasy 5</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-1">Draw Date</label>
-              <input type="date" class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">Per Person Buy-In</label>
-              <div class="flex items-center rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-sm">
-                <span class="mr-1 text-secondary">$</span>
-                <input type="number" class="flex-1 bg-transparent outline-none" placeholder="5" />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium mb-1">Pool Password</label>
-              <input class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-sm" placeholder="ex: breakroom777" />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium mb-1">Notes (optional)</label>
-            <textarea class="w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-sm min-h-[80px]" placeholder="Example: Pay cash to John at desk 3 before 4:30 PM. PowerPlay included."></textarea>
-          </div>
-
 <form
+  name="create-pool"
+  method="POST"
+  data-netlify="true"
+  action="/pool-created.html"
+  class="max-w-xl mx-auto mt-8 bg-card-gray p-6 md:p-8 rounded-3xl border border-gray-700 space-y-4"
+>
+  <!-- Netlify form name (important) -->
+  <input type="hidden" name="form-name" value="create-pool" />
+
+  <h2 class="text-2xl font-bold mb-2 text-center">Create a Private Pool</h2>
+  <p class="text-sm text-secondary-gray text-center mb-4">
+    Fill this out to create a private pool. Share the pool name & password with your coworkers.
+  </p>
+
+  <!-- Pool Group Name -->
+  <div>
+    <label class="block text-sm font-semibold mb-1" for="pool-name">Pool Name / Group</label>
+    <input
+      id="pool-name"
+      name="pool-name"
+      type="text"
+      required
+      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+      placeholder="Warehouse Crew Powerball"
+    />
+  </div>
+
+  <!-- Pool Password -->
+  <div>
+    <label class="block text-sm font-semibold mb-1" for="pool-password">Pool Password</label>
+    <input
+      id="pool-password"
+      name="pool-password"
+      type="text"
+      required
+      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+      placeholder="Something only your group knows"
+    />
+  </div>
+
+  <!-- Lotto Type -->
+  <div>
+    <label class="block text-sm font-semibold mb-1" for="lotto-type">Lottery Game</label>
+    <select
+      id="lotto-type"
+      name="lotto-type"
+      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+    >
+      <option>Powerball</option>
+      <option>Mega Millions</option>
+      <option>Florida Lotto</option>
+      <option>Fantasy 5</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <!-- Buy Time -->
+  <div>
+    <label class="block text-sm font-semibold mb-1" for="buy-time">
+      Ticket Purchase Deadline (date & time)
+    </label>
+    <input
+      id="buy-time"
+      name="buy-time"
+      type="datetime-local"
+      required
+      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+    />
+  </div>
+
+  <!-- Price per Share -->
+  <div>
+    <label class="block text-sm font-semibold mb-1" for="price-per-share">
+      Price to Join This Pool (per person)
+    </label>
+    <input
+      id="price-per-share"
+      name="price-per-share"
+      type="number"
+      step="0.01"
+      min="0"
+      required
+      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+      placeholder="5.00"
+    />
+  </div>
+
+  <!-- Organizer Contact -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-semibold mb-1" for="organizer-email">Your Email</label>
+      <input
+        id="organizer-email"
+        name="organizer-email"
+        type="email"
+        required
+        class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+        placeholder="you@work.com"
+      />
+    </div>
+    <div>
+      <label class="block text-sm font-semibold mb-1" for="organizer-phone">
+        Your Phone (optional)
+      </label>
+      <input
+        id="organizer-phone"
+        name="organizer-phone"
+        type="tel"
+        class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+        placeholder="555-123-4567"
+      />
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div>
+    <label class="block text-sm font-semibold mb-1" for="disclaimer">
+      Disclaimer (shown to your pool)
+    </label>
+    <textarea
+      id="disclaimer"
+      name="disclaimer"
+      rows="3"
+      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+      placeholder="Example: All payments must be made before the deadline. If you are not marked as paid, you are NOT in the pool..."
+    ></textarea>
+  </div>
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    class="w-full btn-gradient text-white font-bold px-6 py-3 rounded-xl shadow-2xl shadow-emerald-900/50 hover:shadow-emerald-700/70 transition duration-300 transform hover:scale-[1.02] active:scale-95 text-lg border border-emerald-400/30 mt-4"
+  >
+    Create Pool
+  </button>
+</form>
+
 
   >
       </div>
