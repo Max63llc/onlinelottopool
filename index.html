@@ -554,5 +554,38 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
+<!-- Load Supabase Client -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabase = supabase.createClient(
+    "https://YOUR-PROJECT-ID.supabase.co",
+    "YOUR-PUBLIC-ANON-KEY"
+  );
+
+  async function createPool(event) {
+    event.preventDefault();
+
+    const poolName = document.getElementById("poolName").value;
+    const lottery = document.getElementById("lottery").value;
+    const cutoff = document.getElementById("cutoff").value;
+
+    const { data, error } = await supabase
+      .from("pools")
+      .insert([
+        { pool_name: poolName, lottery_type: lottery, cutoff_time: cutoff }
+      ]);
+
+    if (error) {
+      alert("Error creating pool: " + error.message);
+    } else {
+      alert("Pool created successfully!");
+    }
+  }
+</script>
+</body>
+</html>
+
+  
 </body>
 </html>
