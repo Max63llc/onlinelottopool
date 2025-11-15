@@ -103,405 +103,264 @@
       </div>
     </section>
 
-
-    <!-- 2-COLUMN MAIN AREA -->
+    <!-- 2-COLUMN MAIN AREA: CREATE POOL + JOIN POOL SIDE BY SIDE -->
     <section class="grid md:grid-cols-2 gap-8 mb-16" id="create-pool">
-      <!-- LEFT: CREATE POOL FORM (UI ONLY) -->
-<form
-  name="create-pool"
-  method="POST"
-  data-netlify="true"
-  action="/pool-created.html"
-  class="max-w-xl mx-auto mt-8 bg-card-gray p-6 md:p-8 rounded-3xl border border-gray-700 space-y-4"
->
-  <!-- Netlify form name (important) -->
-  <input type="hidden" name="form-name" value="create-pool" />
+      <!-- LEFT: CREATE POOL FORM -->
+      <form
+        name="create-pool"
+        method="POST"
+        data-netlify="true"
+        action="/pool-created.html"
+        class="w-full bg-slate-900/80 border border-gray-700 p-6 md:p-8 rounded-3xl space-y-4"
+      >
+        <input type="hidden" name="form-name" value="create-pool" />
 
-  <h2 class="text-2xl font-bold mb-2 text-center">Create a Private Pool</h2>
-  <p class="text-sm text-secondary-gray text-center mb-4">
-    Fill this out to create a private pool. Share the pool name & password with your coworkers.
-  </p>
+        <h2 class="text-2xl font-bold mb-2 text-center">Create a Private Pool</h2>
+        <p class="text-sm text-gray-400 text-center mb-4">
+          Fill this out to create a private pool. Share the pool name & password with your coworkers.
+        </p>
 
-  <!-- Pool Group Name -->
-  <div>
-    <label class="block text-sm font-semibold mb-1" for="pool-name">Pool Name / Group</label>
-    <input
-      id="pool-name"
-      name="pool-name"
-      type="text"
-      required
-      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-      placeholder="Warehouse Crew Powerball"
-    />
-  </div>
+        <!-- Pool Group Name -->
+        <div>
+          <label class="block text-sm font-semibold mb-1" for="pool-name">
+            Pool Name / Group
+          </label>
+          <input
+            id="pool-name"
+            name="pool-name"
+            type="text"
+            required
+            class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+            placeholder="Warehouse Crew Powerball"
+          />
+        </div>
 
-  <!-- Pool Password -->
-  <div>
-    <label class="block text-sm font-semibold mb-1" for="pool-password">Pool Password</label>
-    <input
-      id="pool-password"
-      name="pool-password"
-      type="text"
-      required
-      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-      placeholder="Something only your group knows"
-    />
-  </div>
+        <!-- Pool Password -->
+        <div>
+          <label class="block text-sm font-semibold mb-1" for="pool-password">
+            Pool Password
+          </label>
+          <input
+            id="pool-password"
+            name="pool-password"
+            type="text"
+            required
+            class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+            placeholder="Something only your group knows"
+          />
+        </div>
 
-  <!-- Lotto Type -->
-  <div>
-    <label class="block text-sm font-semibold mb-1" for="lotto-type">Lottery Game</label>
-    <select
-      id="lotto-type"
-      name="lotto-type"
-      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-    >
-      <option>Powerball</option>
-      <option>Mega Millions</option>
-      <option>Florida Lotto</option>
-      <option>Fantasy 5</option>
-      <option>Other</option>
-    </select>
-  </div>
+        <!-- Lotto Type -->
+        <div>
+          <label class="block text-sm font-semibold mb-1" for="lotto-type">
+            Lottery Game
+          </label>
+          <select
+            id="lotto-type"
+            name="lotto-type"
+            class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+          >
+            <option>Powerball</option>
+            <option>Mega Millions</option>
+            <option>Florida Lotto</option>
+            <option>Fantasy 5</option>
+            <option>Other</option>
+          </select>
+        </div>
 
-  <!-- Buy Time -->
-  <div>
-    <label class="block text-sm font-semibold mb-1" for="buy-time">
-      Ticket Purchase Deadline (date & time)
-    </label>
-    <input
-      id="buy-time"
-      name="buy-time"
-      type="datetime-local"
-      required
-      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-    />
-  </div>
+        <!-- Buy Time -->
+        <div>
+          <label class="block text-sm font-semibold mb-1" for="buy-time">
+            Ticket Purchase Deadline (date & time)
+          </label>
+          <input
+            id="buy-time"
+            name="buy-time"
+            type="datetime-local"
+            required
+            class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+          />
+        </div>
 
-  <!-- Price per Share -->
-  <div>
-    <label class="block text-sm font-semibold mb-1" for="price-per-share">
-      Price to Join This Pool (per person)
-    </label>
-    <input
-      id="price-per-share"
-      name="price-per-share"
-      type="number"
-      step="0.01"
-      min="0"
-      required
-      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-      placeholder="5.00"
-    />
-  </div>
+        <!-- Price per Share -->
+        <div>
+          <label class="block text-sm font-semibold mb-1" for="price-per-share">
+            Price to Join This Pool (per person)
+          </label>
+          <input
+            id="price-per-share"
+            name="price-per-share"
+            type="number"
+            step="0.01"
+            min="0"
+            required
+            class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+            placeholder="5.00"
+          />
+        </div>
 
-  <!-- Organizer Contact -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div>
-      <label class="block text-sm font-semibold mb-1" for="organizer-email">Your Email</label>
-      <input
-        id="organizer-email"
-        name="organizer-email"
-        type="email"
-        required
-        class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-        placeholder="you@work.com"
-      />
-    </div>
-    <div>
-      <label class="block text-sm font-semibold mb-1" for="organizer-phone">
-        Your Phone (optional)
-      </label>
-      <input
-        id="organizer-phone"
-        name="organizer-phone"
-        type="tel"
-        class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-        placeholder="555-123-4567"
-      />
-    </div>
-  </div>
-
-  <!-- Disclaimer -->
-  <div>
-    <label class="block text-sm font-semibold mb-1" for="disclaimer">
-      Disclaimer (shown to your pool)
-    </label>
-    <textarea
-      id="disclaimer"
-      name="disclaimer"
-      rows="3"
-      class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
-      placeholder="Example: All payments must be made before the deadline. If you are not marked as paid, you are NOT in the pool..."
-    ></textarea>
-  </div>
-
-  <!-- Submit -->
-  <button
-    type="submit"
-    class="w-full btn-gradient text-white font-bold px-6 py-3 rounded-xl shadow-2xl shadow-emerald-900/50 hover:shadow-emerald-700/70 transition duration-300 transform hover:scale-[1.02] active:scale-95 text-lg border border-emerald-400/30 mt-4"
-  >
-    Create Pool
-  </button>
-  
-<form id="createPoolForm">
-
-
-</form>
-
-
-</form>
-
-
-  >
-      </div>
-
-      
-      <!-- RIGHT: EXAMPLE POOL DASHBOARD -->
-      <div id="pools" class="space-y-6">
-        <div class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-7 card-shadow">
-          <div class="flex items-start justify-between mb-3">
-            <div>
-              <h3 class="text-xl font-bold">Warehouse Crew Powerball</h3>
-              <p class="text-secondary text-xs mt-1 flex items-center gap-2">
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-900/30 text-emerald-300 border border-emerald-500/40 text-[10px]">
-                  ACTIVE
-                </span>
-                Draw: Fri • 11:00 PM ET • Powerball
-              </p>
-            </div>
-            <div class="text-right text-xs text-secondary">
-              <div>Pool Code: <span class="font-mono text-white">WHSE-1123</span></div>
-              <div>Password Protected 🔒</div>
-            </div>
+        <!-- Organizer Contact -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-1" for="organizer-email">
+              Your Email
+            </label>
+            <input
+              id="organizer-email"
+              name="organizer-email"
+              type="email"
+              required
+              class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+              placeholder="you@work.com"
+            />
           </div>
-
-          <!-- COUNTDOWN (front-end only demo) -->
-          <div class="flex items-center justify-between bg-slate-900/80 border border-slate-800 rounded-2xl px-4 py-3 mb-4">
-            <div class="text-xs text-secondary">
-              Time left to join
-            </div>
-            <div id="countdown" class="font-mono text-lg font-semibold text-emerald-accent">
-              00:12:45
-            </div>
-          </div>
-
-          <!-- PARTICIPANTS TABLE (Mark as Paid UI) -->
-          <div class="mb-4">
-            <div class="flex items-center justify-between mb-2 text-xs text-secondary">
-              <span>Participants</span>
-              <span>Buy-in: $5 • Max: 15</span>
-            </div>
-
-            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl overflow-hidden text-xs">
-              <div class="grid grid-cols-4 gap-2 px-3 py-2 border-b border-slate-800 text-secondary">
-                <div>Name</div>
-                <div class="text-center">Status</div>
-                <div class="text-center">Paid</div>
-                <div class="text-right pr-1">Marked By</div>
-              </div>
-
-              <!-- Example rows (demo only) -->
-              <div class="grid grid-cols-4 gap-2 px-3 py-2 border-b border-slate-900">
-                <div>John R.</div>
-                <div class="text-center text-emerald-400 font-semibold">In</div>
-                <div class="text-center">
-                  <input type="checkbox" checked class="accent-emerald-500" />
-                </div>
-                <div class="text-right pr-1 text-secondary">You</div>
-              </div>
-              <div class="grid grid-cols-4 gap-2 px-3 py-2 border-b border-slate-900">
-                <div>Maria L.</div>
-                <div class="text-center text-emerald-400 font-semibold">In</div>
-                <div class="text-center">
-                  <input type="checkbox" class="accent-emerald-500" />
-                </div>
-                <div class="text-right pr-1 text-secondary">—</div>
-              </div>
-              <div class="grid grid-cols-4 gap-2 px-3 py-2">
-                <div>Devon T.</div>
-                <div class="text-center text-yellow-300 font-semibold">Pending</div>
-                <div class="text-center">
-                  <input type="checkbox" class="accent-emerald-500" />
-                </div>
-                <div class="text-right pr-1 text-secondary">—</div>
-              </div>
-            </div>
-
-            <p class="text-[11px] text-secondary mt-1">
-              In the real app, only the pool organizer (you) can toggle “Paid” and this saves to the database.
-            </p>
-          </div>
-
-          <!-- UPLOAD TICKET PHOTOS SECTION -->
-          <div class="mt-4 border-t border-slate-800 pt-4">
-            <h4 class="text-sm font-semibold mb-2">Ticket Photos</h4>
-            <p class="text-[12px] text-secondary mb-3">
-              After you buy the tickets, upload clear photos. In the full version, these will be
-              stored and automatically emailed to everyone in the pool list.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-3 items-center">
-              <button type="button" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 text-sm hover:bg-slate-800">
-                Upload Ticket Photos (Demo)
-              </button>
-              <span class="text-[11px] text-secondary">
-                For now, you can still email pics manually to your coworkers.
-              </span>
-            </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1" for="organizer-phone">
+              Your Phone (optional)
+            </label>
+            <input
+              id="organizer-phone"
+              name="organizer-phone"
+              type="tel"
+              class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+              placeholder="555-123-4567"
+            />
           </div>
         </div>
 
-        
-<!-- JOIN A POOL SECTION -->
-<section id="join-pool" class="max-w-xl mx-auto mt-16 mb-24 px-4">
-  <h2 class="text-2xl font-bold mb-4 text-white">
-    Join a Pool
-  </h2>
-  <p class="text-gray-300 text-sm mb-6">
-    Enter the pool name or code you were given and your contact details so the organizer
-    can confirm payment and send ticket photos and deadline reminders.
-  </p>
-
-  <form
-    name="join-pool"
-    method="POST"
-    data-netlify="true"
-    action="/success.html"
-    class="bg-gray-900/80 border border-gray-700 rounded-2xl p-6 space-y-4"
-  >
-    <!-- Netlify needs this hidden field -->
-    <input type="hidden" name="form-name" value="join-pool" />
-
-    <!-- Pool Name / Code -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="pool-name">
-        Pool name or code
-      </label>
-      <input
-        id="pool-name"
-        name="pool-name"
-        type="text"
-        required
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="e.g. Warehouse Crew Powerball 11/20"
-      />
-    </div>
-
-    <!-- Your Name -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="participant-name">
-        Your name
-      </label>
-      <input
-        id="participant-name"
-        name="participant-name"
-        type="text"
-        required
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="John Smith"
-      />
-    </div>
-
-    <!-- Email -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="email">
-        Email (for ticket photos)
-      </label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        required
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="you@example.com"
-      />
-    </div>
-
-    <!-- Phone (optional) -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="phone">
-        Phone (optional – for text alerts)
-      </label>
-      <input
-        id="phone"
-        name="phone"
-        type="tel"
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="555-123-4567"
-      />
-    </div>
-
-    <!-- Notes to Organizer -->
-    <div>
-      <label class="block text-sm font-medium text-gray-200 mb-1" for="note">
-        Note to organizer (optional)
-      </label>
-      <textarea
-        id="note"
-        name="note"
-        rows="3"
-        class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        placeholder="Example: I paid in cash to Mike at 2:15 PM."
-      ></textarea>
-    </div>
-
-    <!-- Disclaimer -->
-    <p class="text-xs text-gray-400">
-      By joining this pool, you agree to pay the organizer before the posted cutoff time.
-      The organizer is responsible for purchasing tickets and sharing photos with all participants.
-    </p>
-
-    <!-- Submit button -->
-    <button
-      type="submit"
-      class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl mt-2 text-sm tracking-wide"
-    >
-      Join this pool
-    </button>
-  </form>
-</section>
-        
-        <!-- BLOG + ADSENSE LAYOUT PREVIEW -->
-        <div id="blog" class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-7">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-bold">Lotto Pool Tips & Blog</h3>
-            <span class="text-[11px] text-secondary">Coming soon</span>
-          </div>
-
-          <div class="grid md:grid-cols-3 gap-4 mb-4">
-            <article class="bg-slate-950/60 border border-slate-800 rounded-2xl p-3">
-              <h4 class="text-sm font-semibold mb-1">How to Run a Fair Work Lotto Pool</h4>
-              <p class="text-[12px] text-secondary">
-                Simple rules, written agreements, and how to avoid drama when the numbers hit.
-              </p>
-            </article>
-            <article class="bg-slate-950/60 border border-slate-800 rounded-2xl p-3">
-              <h4 class="text-sm font-semibold mb-1">Tracking Buy-Ins Without Handling Money Online</h4>
-              <p class="text-[12px] text-secondary">
-                Why we let you mark “Paid” but don’t process payments to keep it clean with the rules.
-              </p>
-            </article>
-            <article class="bg-slate-950/60 border border-slate-800 rounded-2xl p-3">
-              <h4 class="text-sm font-semibold mb-1">Boosting Your Chances (Without Going Broke)</h4>
-              <p class="text-[12px] text-secondary">
-                Reasonable pool sizes, caps, and how to treat this as fun, not income.
-              </p>
-            </article>
-          </div>
-
-          <!-- AdSense placeholder -->
-          <div class="mt-4 border-t border-slate-800 pt-4">
-            <p class="text-[11px] text-secondary mb-1">
-              
-            </p>
-            <div class="h-24 rounded-xl border border-dashed border-slate-700 flex items-center justify-center text-[11px] text-secondary">
-            
-            </div>
-          </div>
+        <!-- Disclaimer -->
+        <div>
+          <label class="block text-sm font-semibold mb-1" for="disclaimer">
+            Disclaimer (shown to your pool)
+          </label>
+          <textarea
+            id="disclaimer"
+            name="disclaimer"
+            rows="3"
+            class="w-full rounded-lg bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+            placeholder="All payments must be made before the deadline. If you are not marked as paid, you are NOT in the pool..."
+          ></textarea>
         </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full btn-gradient text-white font-bold px-6 py-3 rounded-xl shadow-2xl shadow-emerald-900/50 hover:shadow-emerald-700/70 transition duration-300 transform hover:scale-[1.02] active:scale-95 text-lg border border-emerald-400/30 mt-4"
+        >
+          Create Pool
+        </button>
+      </form>
+
+      <!-- RIGHT: JOIN POOL FORM -->
+      <div id="join-pool" class="w-full bg-slate-900/80 border border-gray-700 rounded-3xl p-6 md:p-8 space-y-4">
+        <h2 class="text-2xl font-bold mb-2 text-white">
+          Join a Pool
+        </h2>
+        <p class="text-gray-300 text-sm mb-4">
+          Enter the pool name or code you were given and your contact details so the organizer
+          can confirm payment and send ticket photos and deadline reminders.
+        </p>
+
+        <form
+          name="join-pool"
+          method="POST"
+          data-netlify="true"
+          action="/success.html"
+          class="space-y-4"
+        >
+          <input type="hidden" name="form-name" value="join-pool" />
+
+          <!-- Pool Name / Code -->
+          <div>
+            <label class="block text-sm font-medium text-gray-200 mb-1" for="join-pool-name">
+              Pool name or code
+            </label>
+            <input
+              id="join-pool-name"
+              name="pool-name"
+              type="text"
+              required
+              class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              placeholder="e.g. Warehouse Crew Powerball 11/20"
+            />
+          </div>
+
+          <!-- Your Name -->
+          <div>
+            <label class="block text-sm font-medium text-gray-200 mb-1" for="participant-name">
+              Your name
+            </label>
+            <input
+              id="participant-name"
+              name="participant-name"
+              type="text"
+              required
+              class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              placeholder="John Smith"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block text-sm font-medium text-gray-200 mb-1" for="email">
+              Email (for ticket photos)
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <!-- Phone (optional) -->
+          <div>
+            <label class="block text-sm font-medium text-gray-200 mb-1" for="phone">
+              Phone (optional – for text alerts)
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              placeholder="555-123-4567"
+            />
+          </div>
+
+          <!-- Notes to Organizer -->
+          <div>
+            <label class="block text-sm font-medium text-gray-200 mb-1" for="note">
+              Note to organizer (optional)
+            </label>
+            <textarea
+              id="note"
+              name="note"
+              rows="3"
+              class="w-full rounded-lg bg-gray-800 border border-gray-700 px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              placeholder="Example: I paid in cash to Mike at 2:15 PM."
+            ></textarea>
+          </div>
+
+          <!-- Disclaimer -->
+          <p class="text-xs text-gray-400">
+            By joining this pool, you agree to pay the organizer before the posted cutoff time.
+            The organizer is responsible for purchasing tickets and sharing photos with all participants.
+          </p>
+
+          <!-- Submit button -->
+          <button
+            type="submit"
+            class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl mt-2 text-sm tracking-wide"
+          >
+            Join this pool
+          </button>
+        </form>
       </div>
     </section>
+
+
 
     <!-- HOW IT WORKS -->
     <section id="how-it-works" class="border-t border-slate-800 pt-10 mt-6">
